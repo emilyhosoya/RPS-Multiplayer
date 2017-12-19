@@ -35,12 +35,25 @@ $(document).ready(function() {
       let now = moment();
       firstTrain = moment(firstTrain, "HH:mm");
       let timeSinceFirstTrain = now.diff(firstTrain, "minutes");
-      let todaysTrains = [];
-      let nextTrain;
+      let minutesAway = timeSinceFirstTrain % frequency;
+      let nextTrain = moment()
+        .add(minutesAway, "minutes")
+        .format("h:mm A");
 
       console.log(
         `It is now ${now}. The first train was at ${firstTrain}. It has been ${timeSinceFirstTrain} minutes since the first train left.`
       );
+
+      // let firstTimeConverted = moment(nextArrival, "hh:mm").subtract(
+      //   1,
+      //   "years"
+      // );
+      // let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+      // let trainRemainder = diffTime % frequency;
+      // let minAway = frequency - trainRemainder;
+      // let arrival = moment().add(minAway, "minutes");
+      // let arrivalFormat = moment(arrival).format("hh:mm");
+      // let minAwayFormat = moment(minAway).format("hh:mm");
 
       // add frequency to firstTrain and add that time to todaysTrains array
       // keep doing that until firstTrain > now, then set that time to nextTrain
@@ -55,9 +68,7 @@ $(document).ready(function() {
 
       // }
 
-      console.log(
-        `Today's trains: ${todaysTrains}. The next train will depart at ${nextTrain}`
-      );
+      console.log(`The next train will depart in ${nextTrain} minutes.`);
       // while this difference != 0, add frequency to firstTrain
       // push that new time to todaysTrains array
       // console.log(todaysTrains);
