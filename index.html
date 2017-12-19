@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Train Scheduler</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya|Noto+Sans" rel="stylesheet">
+    <link href="./assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="">Colorado Train Schedule</h1>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-8 col-lg-9">
+                <div class="card">
+                    <div class="card-header">
+                        Train Scheduler
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Train Name</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody id="train-data">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4 col-lg-3">
+                <div class="card">
+                    <div class="card-header">
+                        Add Train
+                    </div>
+                    <div class="card-body">
+                        <form novalidate>
+                            <div class="form-group">
+                                <label for="name" class="col-form-label-sm">Train Name</label>
+                                <input type="text" class="form-control form-control-sm" id="name" required />
+                                <div class="invalid-feedback">
+                                    Please provide a train name.
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="destination" class="col-form-label-sm">Destination</label>
+                                <input type="text" class="form-control form-control-sm" id="destination" required />
+                                <div class="invalid-feedback">
+                                    Please provide a destination.
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="first-train" class="col-form-label-sm">First Train Time</label>
+                                <input type="text" class="form-control form-control-sm" id="first-train" required />
+                                <small class="form-text text-muted">(HHmm - military time)</small>
+                                <div class="invalid-feedback">
+                                    Please provide a valid time (e.g. 1530 is 3:30 PM).
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency" class="col-form-label-sm">Frequency (min)</label>
+                                <input type="text" class="form-control form-control-sm" id="frequency" required />
+                                <div class="invalid-feedback">
+                                    Please provide a valid number.
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="./assets/javascript/moment-with-locales.min.js"></script>
+    <script src="./assets/javascript/app.js"></script>
+</body>
+
+</html>
