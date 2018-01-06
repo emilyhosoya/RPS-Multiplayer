@@ -21,6 +21,13 @@ $(document).ready(function() {
   let frequency = 0;
   let minutesAway = 0;
 
+  // Update time every 1 min
+  function moveTime() {
+    setInterval(function() {
+      console.log("1 min has passed");
+    }, 60000);
+  }
+
   ref.on(
     "child_added",
     function(snapshot) {
@@ -41,39 +48,8 @@ $(document).ready(function() {
         .format("h:mm A");
 
       console.log(
-        `It is now ${now}. The first train was at ${firstTrain}. It has been ${timeSinceFirstTrain} minutes since the first train left.`
+        `It is now ${now}. The first train was at ${firstTrain}. It has been ${timeSinceFirstTrain} minutes since the first train left. The next train will depart at ${nextTrain}.`
       );
-
-      // let firstTimeConverted = moment(nextArrival, "hh:mm").subtract(
-      //   1,
-      //   "years"
-      // );
-      // let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-      // let trainRemainder = diffTime % frequency;
-      // let minAway = frequency - trainRemainder;
-      // let arrival = moment().add(minAway, "minutes");
-      // let arrivalFormat = moment(arrival).format("hh:mm");
-      // let minAwayFormat = moment(minAway).format("hh:mm");
-
-      // add frequency to firstTrain and add that time to todaysTrains array
-      // keep doing that until firstTrain > now, then set that time to nextTrain
-      // do {
-      //   nextTrain = firstTrain += frequency;
-      //   todaysTrains.push(nextTrain);
-      // } while (timeSinceFirstTrain >= 0);
-
-      // if (nextTrain >= now) {
-      //   break;
-      // } else {
-
-      // }
-
-      console.log(`The next train will depart in ${nextTrain} minutes.`);
-      // while this difference != 0, add frequency to firstTrain
-      // push that new time to todaysTrains array
-      // console.log(todaysTrains);
-      // when the difference = 0 or is negative, then nextTrain = that value
-      // console.log(nextTrain);
 
       let print = `
       <tr>
@@ -114,4 +90,11 @@ $(document).ready(function() {
       frequency
     });
   });
+
+  // Initialize the app
+  moveTime();
+});
+
+$("button").on("click", function(event) {
+  console.log("Button clicked");
 });

@@ -10,24 +10,74 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Alegreya|Noto+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid text-center">
+    <div class="jumbotron jumbotron-fluid animated fadeIn">
         <div class="container">
-            <h1 class="">Colorado Train Schedule</h1>
+            <div class="row">
+                <div class="col-sm-6 text-center animated fadeInLeft">
+                    <h1 class="">Shinkansen Train Schedule</h1>
+                    <h3 class="lead mb-3">次の列車はいつですか</h3>
+                    <img src="./assets/images/Depositphotos_56237579_l-2015.jpg">
+                </div>
+                <div class="col-sm-6 animated fadeInRight">
+                    <div class="card card-input">
+                        <div class="card-header text-center">
+                            Add Train
+                        </div>
+                        <div class="card-body">
+                            <form novalidate>
+                                <div class="form-group">
+                                    <label for="name" class="col-form-label-sm">Train Name</label>
+                                    <input type="text" class="form-control form-control-sm" id="name" required />
+                                    <div class="invalid-feedback">
+                                        Please provide a train name.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="destination" class="col-form-label-sm">Destination</label>
+                                    <input type="text" class="form-control form-control-sm" id="destination" required />
+                                    <div class="invalid-feedback">
+                                        Please provide a destination.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="first-train" class="col-form-label-sm">First Train Time</label>
+                                    <input type="text" class="form-control form-control-sm" id="first-train" required />
+                                    <small class="form-text text-muted">(HH:mm - military time)</small>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid time (e.g. 1530 is 3:30 PM).
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label for="frequency" class="col-form-label-sm">Frequency (min)</label>
+                                    <input type="text" class="form-control form-control-sm" id="frequency" required />
+                                    <div class="invalid-feedback">
+                                        Please provide a valid number.
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container animated fadeInUp">
         <div class="row">
-            <div class="col-sm-12 col-md-8 col-lg-9">
-                <div class="card">
+            <div class="col-sm-12 mb-3">
+                <div class="card card-output">
                     <div class="card-header">
                         Train Scheduler
                     </div>
                     <div class="card-body">
-                        <table class="table table-hover table-sm">
+                        <table class="table table-sm">
                             <thead>
                                 <tr>
                                     <th scope="col">Train Name</th>
@@ -43,47 +93,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-4 col-lg-3">
-                <div class="card">
-                    <div class="card-header">
-                        Add Train
-                    </div>
-                    <div class="card-body">
-                        <form novalidate>
-                            <div class="form-group">
-                                <label for="name" class="col-form-label-sm">Train Name</label>
-                                <input type="text" class="form-control form-control-sm" id="name" required />
-                                <div class="invalid-feedback">
-                                    Please provide a train name.
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="destination" class="col-form-label-sm">Destination</label>
-                                <input type="text" class="form-control form-control-sm" id="destination" required />
-                                <div class="invalid-feedback">
-                                    Please provide a destination.
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="first-train" class="col-form-label-sm">First Train Time</label>
-                                <input type="text" class="form-control form-control-sm" id="first-train" required />
-                                <small class="form-text text-muted">(HH:mm - military time)</small>
-                                <div class="invalid-feedback">
-                                    Please provide a valid time (e.g. 1530 is 3:30 PM).
-                                </div>
+            <div class="col-sm-12">
 
-                            </div>
-                            <div class="form-group">
-                                <label for="frequency" class="col-form-label-sm">Frequency (min)</label>
-                                <input type="text" class="form-control form-control-sm" id="frequency" required />
-                                <div class="invalid-feedback">
-                                    Please provide a valid number.
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
